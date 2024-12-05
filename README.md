@@ -22,7 +22,7 @@ The test case includes:
 
 2. Run the test:
    ```shell
-   spectral lint test-cases/failing/api.yaml
+   spectral lint reference/api.yaml
    ```
 
 ## Expected Behavior
@@ -38,25 +38,25 @@ The rule is still applied despite the override configuration.
 ```shell
 (base) david.lance@David-Lance spectral-rule-override-for-endpoint-failure % spectral lint test-cases/failing/api.yaml --verbose
 Found 57 rules (46 enabled)
-Linting /Users/david.lance/Workspace/spectral-rule-override-for-endpoint-failure/test-cases/failing/api.yaml
+Linting /Users/david.lance/Workspace/spectral-rule-override-for-endpoint-failure/reference/api.yaml
 No results with a severity of 'error' found!
 ```
 
 ## Actual Output
 
 ```shell
-bash-3.2$ spectral lint test-cases/failing/api.yaml
+bash-3.2$ spectral lint reference/api.yaml
 /Users/david.lance/Workspace/spectral/spectral-rule-no-store/test-cases/shared/common.yaml
  5:20  error  cache-control-header-rule  Success responses should contain a `Cache-Control` header value of `no-store`.  components.headers.CacheControlHeader.description
  ```
 
 ## Additional Notes
 
-File-level overrides (without path specification) work as expected:
+File-level overrides (without path specification) work as expected. Also found that the `**` prefix was necessary to target the file.:
 ```yaml
 overrides:
   - files:
-    - "**/test-cases/failing/api.yaml"  # This works
+    - "**/reference/api.yaml"  # This works
 ```
 
 ## Directory Structure
@@ -65,9 +65,8 @@ overrides:
 .
 ├── .spectral.yaml
 ├── README.md
-└── test-cases
-    ├── failing
-    │   └── api.yaml
+└── reference
+    ├── api.yaml
     └── shared
         └── common.yaml
 ```
