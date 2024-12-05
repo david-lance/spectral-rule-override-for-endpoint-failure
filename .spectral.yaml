@@ -16,9 +16,9 @@ rules:
           match: "no-store"
 
 overrides:
-
   # This path-specific override doesn't work as expected
   - files: "**/test-cases/failing/api.yaml#/paths/~1resources~1details"
+  - files: "**/test-cases/shared/common.yaml"
     rules:
       cache-control-header-rule: off
 
