@@ -22,6 +22,6 @@ rules:
 
 overrides:
   - files:
-    - "/reference/api.yaml#/paths/resources~1details"
+    - "/reference/api.yaml#/paths/~1resources~1details"
     rules:
       cache-control-header-rule: "off"
