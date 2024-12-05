@@ -19,3 +19,13 @@ overrides:
     - "**/test-cases/shared/common.yaml"
     rules:
       cache-control-header-rule: "off"
+
+  - files:
+    - "**/test-cases/failing/api.yaml"
+    rules:
+      oas3-api-servers: "off"
+      info-contact: "off"
+      info-description: "off"
+      operation-operationId: "off"
+      operation-description: "off"
+      operation-tags: "off"
