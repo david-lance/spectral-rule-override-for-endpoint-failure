@@ -1,0 +1,28 @@
+extends: 
+  - "spectral:oas"
+
+rules:
+  cache-control-header-rule:
+  description: |-
+      Successful `POST`/`PUT`/`PATCH`/`DELETE` responses (200,201,204) should contain a `Cache-Control` header description value containing `no-store`.
+    message: "Success responses should contain a `Cache-Control` header value of `no-store`."
+    severity: "error"
+    formats:
+      - "oas3"
+    given: "$.paths[*].[post,put,patch,delete].responses.[200,201,204].headers.Cache-Control.description"
+    then:
+      - function: "pattern"
+        functionOptions: 
+          match: "no-store"
+
+overrides:
+
+  # This path-specific override doesn't work as expected
+  - files: "**/test-cases/failing/api.yaml#/paths/~1resources~1details"
+    rules:
+      cache-control-header-rule: off
+
+  # This file-level override works
+  # - files: "**/test-cases/failing/api.yaml"
+  #   rules:
+  #     cache-control-header-rule: off
