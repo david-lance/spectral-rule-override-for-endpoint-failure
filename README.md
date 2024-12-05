@@ -33,7 +33,16 @@ The rule should be disabled for the `/resources/details` endpoint due to the ove
 
 The rule is still applied despite the override configuration.
 
-## Output
+## Expected Output
+
+```shell
+(base) david.lance@David-Lance spectral-rule-override-for-endpoint-failure % spectral lint test-cases/failing/api.yaml --verbose
+Found 57 rules (46 enabled)
+Linting /Users/david.lance/Workspace/spectral-rule-override-for-endpoint-failure/test-cases/failing/api.yaml
+No results with a severity of 'error' found!
+```
+
+## Actual Output
 
 ```shell
 bash-3.2$ spectral lint test-cases/failing/api.yaml
