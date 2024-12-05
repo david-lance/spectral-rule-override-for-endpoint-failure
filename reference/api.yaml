@@ -11,4 +11,4 @@ paths:
           description: OK
           headers:
             Cache-Control:
-              $ref: '../shared/common.yaml#/components/headers/CacheControlHeader' 
+              $ref: 'shared/common.yaml#/components/headers/CacheControlHeader' 
