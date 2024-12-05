@@ -1,0 +1,7 @@
+openapi: 3.1.0
+components:
+  headers:
+    CacheControlHeader:
+      description: "Example header"
+      schema:
+        type: string 
